@@ -4,11 +4,30 @@ import styles from './CountrySelected.module.scss';
 import PropTypes from 'prop-types';
 import CountriesList from '../CountriesList';
 import { useRef, useEffect, useState } from 'react';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
+import IconCenter from '../IconCenter';
+import { getCountries } from '~/httpRequest/apis';
+import { useSelector } from 'react-redux';
+import { countrySelector } from '~/redux/selectors';
 
 const cx = className.bind(styles);
 const CountrySelected = (props) => {
     const [showList, setShowList] = useState(false);
+    const [countries, setCountries] = useState([]);
+    const { Country: country } = useSelector(countrySelector);
     const inSideRef = useRef();
+
+    useEffect(() => {
+        getCountries()
+            .then((res) => {
+                if (res && res.data) {
+                    setCountries(res.data);
+                }
+            })
+            .catch((error) => console.log(error));
+    }, []);
+
     useEffect(() => {
         document.addEventListener('click', handleClickOutSide);
         return () => {
@@ -25,10 +44,23 @@ const CountrySelected = (props) => {
 
     return (
         <div className={cx('wrapper')}>
-            <div ref={inSideRef} onClick={() => setShowList(!showList)}>
-                CountrySelected
+            <div
+                ref={inSideRef}
+                onClick={() => setShowList(!showList)}
+                className={cx('country-selected', {
+                    showList: showList,
+                })}
+            >
+                <p className={cx('country')}>{country}</p>
+                <IconCenter className={cx('icon')} onClick={() => setShowList(!showList)}>
+                    {!showList ? (
+                        <KeyboardArrowDownOutlinedIcon fontSize="large" />
+                    ) : (
+                        <KeyboardArrowUpOutlinedIcon fontSize="large" />
+                    )}
+                </IconCenter>
             </div>
-            <div className={cx('country-list')}>{showList && <CountriesList />}</div>
+            <div className={cx('country-list')}>{showList && <CountriesList countries={countries} />}</div>
         </div>
     );
 };

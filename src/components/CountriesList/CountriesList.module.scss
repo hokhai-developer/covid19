@@ -1,0 +1,26 @@
+@import 'src/scss/base';
+
+.wrapper-list {
+    width: 100%;
+    max-height: 366px;
+    padding: 6px 12px;
+    background-color: $white-color;
+    overflow: overlay;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 10000;
+    visibility: visible;
+}
+
+//countryItem
+.wrapper-item {
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 4px 0;
+    color: $text-color-normal;
+    background-color: $white-color;
+    cursor: pointer;
+    &:hover {
+        background-color: $color-blue;
+        color: $white-color;
+    }
+}

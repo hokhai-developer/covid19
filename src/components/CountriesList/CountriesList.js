@@ -5,17 +5,14 @@ import PropTypes from 'prop-types';
 import CountryItem from './CountryItem';
 
 const cx = className.bind(styles);
-const CountriesList = (props) => {
+const CountriesList = ({ countries }) => {
     return (
-        <div>
-            <CountryItem />
-            <CountryItem />
-            <CountryItem />
-            <CountryItem />
-            <CountryItem />
-            <CountryItem />
-            <CountryItem />
-            <CountryItem />
+        <div className={cx('wrapper-list')}>
+            {countries &&
+                countries.length > 0 &&
+                countries.map((country, index) => {
+                    return <CountryItem country={country} key={index} />;
+                })}
         </div>
     );
 };

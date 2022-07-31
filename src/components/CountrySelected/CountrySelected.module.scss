@@ -2,5 +2,35 @@
 
 .wrapper {
     position: relative;
-    height: 28px;
+    margin: 4px 0;
+    max-width: 448px;
+    background-color: $white-color;
+    .country-selected {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 3px solid $color-gray-200;
+        width: 100%;
+        cursor: pointer;
+        .country {
+            padding: 6px 24px 6px 12px;
+            color: $text-color-bold;
+        }
+        .icon {
+            cursor: pointer;
+        }
+        &:hover {
+            border-bottom: 3px solid $color-gray-600;
+        }
+        &.showList {
+            border-bottom: 3px solid $color-gray-600;
+        }
+    }
+    .country-list {
+        position: absolute;
+        left: 0;
+        right: 0;
+        border: 0;
+        background-color: $white-color;
+    }
 }

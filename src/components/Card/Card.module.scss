@@ -1,0 +1,45 @@
+@import 'src/scss/base';
+
+.wrapper-card {
+    z-index: -1;
+    position: relative;
+    flex: 1;
+    min-width: 220px;
+    height: 100px;
+    padding: 16px 16px 24px 16px;
+    border-radius: 2px;
+    border-top: 1px solid $color-gray-200;
+    border-right: 1px solid $color-gray-300;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+    .before-card {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 5px;
+        border-top-left-radius: 999px;
+        border-bottom-left-radius: 999px;
+        transform: translateX(-100%);
+        &.active {
+            background-color: $color-danger;
+        }
+        &.confirmed {
+            background-color: $color-success;
+        }
+        &.deaths {
+            background-color: $color-gray-600;
+        }
+    }
+    .content {
+        color: $text-color-bold;
+        .title {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        .count {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+}

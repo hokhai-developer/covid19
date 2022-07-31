@@ -1,0 +1,10 @@
+@import 'src/scss/base';
+
+.wrapper {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 24px;
+    flex-wrap: wrap;
+}

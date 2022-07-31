@@ -8,10 +8,10 @@ import CountriesList from '../CountriesList';
 const cx = classNames.bind(styles);
 const Country = (props) => {
     return (
-        <div>
-            <p>Quốc Gia</p>
+        <div className={cx('wrapper')}>
+            <p className={cx('text')}>Quốc Gia</p>
             <CountrySelected />
-            <p>Lựa chọn quốc gia</p>
+            <p className={cx('text')}>Lựa chọn quốc gia</p>
         </div>
     );
 };
