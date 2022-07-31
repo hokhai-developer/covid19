@@ -1,0 +1,99 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+//variables
+//media
+$mobile-width: 391px; //iphone 12pro
+$tablet-width: 911px; //surface-pro 7
+//font
+$font-family: 'Nunito', sans-serif;
+$text-color-normal: #676a79;
+$text-color-bold: #14191e;
+//colors
+$color-blue: #0d6efd;
+$color-indigo: #6610f2;
+$color-purple: #6f42c1;
+$color-pink: #d63384;
+$color-red: #dc3545;
+$color-orange: #fd7e14;
+$color-yellow: #ffc107;
+$color-green: #198754;
+$color-teal: #20c997;
+$color-cyan: #0dcaf0;
+$color-white: #fff;
+$color-gray: #6c757d;
+$color-gray-dark: #343a40;
+$color-gray-100: #f8f9fa;
+$color-gray-200: #e9ecef;
+$color-gray-300: #dee2e6;
+$color-gray-400: #ced4da;
+$color-gray-500: #adb5bd;
+$color-gray-600: #6c757d;
+$color-gray-700: #495057;
+$color-gray-800: #343a40;
+$color-gray-900: #212529;
+$color-primary: #0f6fec;
+$color-secondary: #14191e;
+$color-success: #0cbc87;
+$color-info: #4f9ef8;
+$color-warning: #f7c32e;
+$color-danger: #d6293e;
+$color-light: #eef0f2;
+$white-color: #fff;
+$black-color: #000;
+$background-body-color: #676a79;
+//width && hight
+$max-width: 1132px;
+$padding-max: 16px;
+$header-hight-desktop: 120px; //linear-gradient(180deg, #ffffff26, #fff0);
+$header-hight-tablet: 56px;
+//mix-xin
+@mixin maxWidth($max-screen-width) {
+    @media only screen and (max-width: $max-screen-width) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media only screen and (max-width: $mobile-width) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media only screen and (max-width: $tablet-width) {
+        @content;
+    }
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    font-family: $font-family;
+    background-color: $white-color;
+    color: $text-color-normal;
+    overflow: overlay;
+}
+
+button,
+input,
+[tabIndex] {
+    outline: none;
+    border: none;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
