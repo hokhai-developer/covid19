@@ -1,0 +1,12 @@
+@import 'src/scss/base';
+
+.wrapper {
+    .header {
+        .header-title {
+            font-size: 52px;
+            font-weight: 600;
+            color: $text-color-bold;
+            line-height: 1.2;
+        }
+    }
+}

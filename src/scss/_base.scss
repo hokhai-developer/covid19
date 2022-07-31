@@ -84,6 +84,23 @@ body {
     background-color: $white-color;
     color: $text-color-normal;
     overflow: overlay;
+    min-height: 100vh;
+}
+
+//custom scrollbar
+::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 18px;
+    background-color: $color-gray-600;
 }
 
 button,
