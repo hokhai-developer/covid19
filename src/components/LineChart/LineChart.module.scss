@@ -1,0 +1,33 @@
+@import 'src/scss/base';
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    max-width: 813px;
+    min-width: 464px;
+    .body {
+        margin-top: 10px;
+    }
+}
+
+//header chart
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 10px;
+
+    .btn {
+        border: 1px solid $color-gray-500;
+        background-color: transparent;
+        font-size: 18px;
+        padding: 3px 9px;
+        border-radius: 2px;
+        cursor: pointer;
+        &.active {
+            border-color: $color-red;
+            background-color: $color-cyan;
+        }
+    }
+}

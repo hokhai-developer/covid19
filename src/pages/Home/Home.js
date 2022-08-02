@@ -14,6 +14,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 const Home = (props) => {
+    const [dataChart, setDataChart] = useState([]);
     const [report, setReport] = useState([]);
     const { Slug: slug } = useSelector(countrySelector);
 
@@ -22,7 +23,8 @@ const Home = (props) => {
             getReportByCountry(slug)
                 .then((res) => {
                     if (res && res.data && res.data.length > 3) {
-                        //khong lay ngay hien tai vi chua thong ke
+                        setDataChart(res.data);
+                        //khong lay ngay hien tai cho HighLight vi chua thong ke
                         const { Active: active, Confirmed: confirmed, Deaths: deaths } = res.data[res.data.length - 2];
                         const newReport = [
                             {
@@ -68,10 +70,12 @@ const Home = (props) => {
     }, [slug]);
     return (
         <div className={cx('wrapper')}>
-            <Header />
-            <Country />
-            {report.length > 0 && <HighLight report={report} />}
-            <Summary />
+            <div className={cx('container')}>
+                <Header />
+                <Country />
+                {report.length > 0 && <HighLight report={report} />}
+                <Summary data={dataChart} />
+            </div>
         </div>
     );
 };

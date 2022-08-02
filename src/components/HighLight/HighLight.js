@@ -6,7 +6,6 @@ import Card from '../Card';
 
 const cx = classNames.bind(styles);
 const HighLight = ({ report }) => {
-    console.log(report);
     return (
         <div className={cx('wrapper')}>
             {report &&

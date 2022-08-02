@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const cx = classNames.bind(styles);
 const Card = ({ className, title, count, type }) => {
     return (
-        <div className={cx('wrapper-card')}>
+        <div className={cx('wrapper-card', className)}>
             <div
                 className={cx('before-card', {
                     [type]: type,

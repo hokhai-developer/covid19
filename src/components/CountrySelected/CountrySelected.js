@@ -10,6 +10,7 @@ import IconCenter from '../IconCenter';
 import { getCountries } from '~/httpRequest/apis';
 import { useSelector } from 'react-redux';
 import { countrySelector } from '~/redux/selectors';
+import { sortBy } from 'lodash';
 
 const cx = className.bind(styles);
 const CountrySelected = (props) => {
@@ -22,7 +23,8 @@ const CountrySelected = (props) => {
         getCountries()
             .then((res) => {
                 if (res && res.data) {
-                    setCountries(res.data);
+                    const newCountries = sortBy(res.data, 'Country');
+                    setCountries(newCountries);
                 }
             })
             .catch((error) => console.log(error));
