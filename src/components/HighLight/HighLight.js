@@ -1,11 +1,10 @@
-import React from 'react';
 import classNames from 'classnames/bind';
-import styles from './HighLight.module.scss';
 import PropTypes from 'prop-types';
 import Card from '../Card';
+import styles from './HighLight.module.scss';
 
 const cx = classNames.bind(styles);
-const HighLight = ({ report }) => {
+const HighLight = ({ report, className }) => {
     return (
         <div className={cx('wrapper')}>
             {report &&
@@ -17,6 +16,9 @@ const HighLight = ({ report }) => {
     );
 };
 
-HighLight.propTypes = {};
+HighLight.propTypes = {
+    className: PropTypes.string,
+    report: PropTypes.array,
+};
 
 export default HighLight;

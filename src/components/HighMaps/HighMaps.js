@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
-import styles from './HighMaps.module.scss';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import highchartsMap from 'highcharts/modules/map';
 import { cloneDeep } from 'lodash';
+import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react';
+import styles from './HighMaps.module.scss';
 
 // Load Highcharts modules
 highchartsMap(Highcharts);
@@ -92,4 +93,9 @@ const HighMaps = ({ mapData, className }) => {
     );
 };
 
-export default React.memo(HighMaps);
+HighMaps.prototype = {
+    mapData: PropTypes.object,
+    className: PropTypes.string,
+};
+
+export default HighMaps;

@@ -1,7 +1,6 @@
-import React from 'react';
 import classNames from 'classnames/bind';
-import styles from './Card.module.scss';
 import PropTypes from 'prop-types';
+import styles from './Card.module.scss';
 
 const cx = classNames.bind(styles);
 const Card = ({ className, title, count, type }) => {
@@ -22,6 +21,11 @@ const Card = ({ className, title, count, type }) => {
     );
 };
 
-Card.propTypes = {};
+Card.propTypes = {
+    className: PropTypes.string,
+    title: PropTypes.string,
+    count: PropTypes.number,
+    type: PropTypes.string,
+};
 
 export default Card;

@@ -1,16 +1,14 @@
-import React from 'react';
-import className from 'classnames/bind';
-import styles from './CountrySelected.module.scss';
-import PropTypes from 'prop-types';
-import CountriesList from '../CountriesList';
-import { useRef, useEffect, useState } from 'react';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
-import IconCenter from '../IconCenter';
-import { getCountries } from '~/httpRequest/apis';
-import { useSelector } from 'react-redux';
-import { countrySelector } from '~/redux/selectors';
+import className from 'classnames/bind';
 import { sortBy } from 'lodash';
+import { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getCountries } from '~/httpRequest/apis';
+import { countrySelector } from '~/redux/selectors';
+import CountriesList from '../CountriesList';
+import IconCenter from '../IconCenter';
+import styles from './CountrySelected.module.scss';
 
 const cx = className.bind(styles);
 const CountrySelected = (props) => {

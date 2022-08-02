@@ -1,13 +1,12 @@
-import React from 'react';
 import className from 'classnames/bind';
-import styles from './CountriesList.module.scss';
 import PropTypes from 'prop-types';
+import styles from './CountriesList.module.scss';
 import CountryItem from './CountryItem';
 
 const cx = className.bind(styles);
-const CountriesList = ({ countries }) => {
+const CountriesList = ({ countries, className }) => {
     return (
-        <div className={cx('wrapper-list')}>
+        <div className={cx('wrapper-list', className)}>
             {countries &&
                 countries.length > 0 &&
                 countries.map((country, index) => {
@@ -17,6 +16,9 @@ const CountriesList = ({ countries }) => {
     );
 };
 
-CountriesList.propTypes = {};
+CountriesList.propTypes = {
+    countries: PropTypes.array,
+    className: PropTypes.string,
+};
 
 export default CountriesList;

@@ -1,17 +1,15 @@
-import React from 'react';
 import classNames from 'classnames/bind';
-import styles from './Summary.module.scss';
 import PropTypes from 'prop-types';
-import LineChart from '../LineChart';
-import HighMaps from '../HighMaps';
-import { getMapDataByCountryId } from '~/httpRequest/apis';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { getMapDataByCountryId } from '~/httpRequest/apis';
 import { countrySelector } from '~/redux/selectors';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import HighMaps from '../HighMaps';
+import LineChart from '../LineChart';
+import styles from './Summary.module.scss';
 
 const cx = classNames.bind(styles);
-const Summary = ({ data }) => {
+const Summary = ({ data, className }) => {
     const [mapData, setMapData] = useState({});
     const { ISO2: countryId } = useSelector(countrySelector);
 
@@ -25,13 +23,16 @@ const Summary = ({ data }) => {
     }, [countryId]);
 
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', className)}>
             <LineChart className={cx('line')} data={data} />
             <HighMaps className={cx('map')} mapData={mapData} />
         </div>
     );
 };
 
-Summary.propTypes = {};
+Summary.propTypes = {
+    data: PropTypes.array,
+    classNames: PropTypes.string,
+};
 
 export default Summary;

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-import styles from './LineChart.module.scss';
-import PropTypes from 'prop-types';
-import HeaderChart from './HeaderChart';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import moment from 'moment';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import HeaderChart from './HeaderChart';
+import styles from './LineChart.module.scss';
 
 const generateOptions = (data) => {
     const categories = data.map((item) => moment(item.Date).format('DD/MM/YYYY'));
@@ -93,6 +93,6 @@ const LineChart = ({ data, className }) => {
     );
 };
 
-LineChart.propTypes = {};
+LineChart.propTypes = { data: PropTypes.array, className: PropTypes.string };
 
 export default LineChart;
